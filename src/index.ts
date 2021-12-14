@@ -55,3 +55,33 @@ console.log('updated randomTupple:', randomTupple)
 
 let tuppleArray: [string, number, boolean][] = [['hello', 1, true], ['world', 2, false]]
 console.log('tuppleArray:', tuppleArray)
+
+/*
+Unions allow a variable to hold multiple types.
+*/
+let randomUnion: string | number = 'hello'
+console.log('randomUnion first value:', randomUnion)
+randomUnion = 46
+console.log('updated randomUnion:', randomUnion)
+
+/*
+Enums allow you to define a set of named constants (thus, cannot be reassigned).
+It compiles into a JavaScript object.
+*/
+enum Color {
+    Red,
+    Black,
+    Blue,
+    White,
+    Green
+}
+console.log('Color.Red:', Color.Red) // defaults to 0 (and upwards)
+console.log('Color.Black:', Color.Black)
+
+enum RandomEnum {
+    randomString = 'randomString',
+    fullName = 'Dan Almenar',
+    offspring = 'Paula y Vicente',
+    age = 42,
+}
+console.log('RandomEnum:', RandomEnum)

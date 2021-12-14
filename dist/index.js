@@ -22,3 +22,25 @@ randomTupple[0] = 'Dan';
 console.log('updated randomTupple:', randomTupple);
 let tuppleArray = [['hello', 1, true], ['world', 2, false]];
 console.log('tuppleArray:', tuppleArray);
+let randomUnion = 'hello';
+console.log('randomUnion first value:', randomUnion);
+randomUnion = 46;
+console.log('updated randomUnion:', randomUnion);
+var Color;
+(function (Color) {
+    Color[Color["Red"] = 0] = "Red";
+    Color[Color["Black"] = 1] = "Black";
+    Color[Color["Blue"] = 2] = "Blue";
+    Color[Color["White"] = 3] = "White";
+    Color[Color["Green"] = 4] = "Green";
+})(Color || (Color = {}));
+console.log('Color.Red:', Color.Red);
+console.log('Color.Black:', Color.Black);
+var RandomEnum;
+(function (RandomEnum) {
+    RandomEnum["randomString"] = "randomString";
+    RandomEnum["fullName"] = "Dan Almenar";
+    RandomEnum["offspring"] = "Paula y Vicente";
+    RandomEnum[RandomEnum["age"] = 42] = "age";
+})(RandomEnum || (RandomEnum = {}));
+console.log('RandomEnum:', RandomEnum);
