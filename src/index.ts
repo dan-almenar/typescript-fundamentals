@@ -208,3 +208,83 @@ const substract: MathFunc = (num1: number, num2: number): number => num1 - num2
 // any function that accepts and return the same types as the interface
 // are part of said interface
 
+// CLASES
+/*
+Classes are a way to create objects with properties and methods.
+Types for properties and constructor should be declared.
+- private properties are only accesible through the class itself.
+- protected properties cannot be changed after instantiation.
+*/
+class Student {
+    protected firstName: string
+    lastName: string
+    grades?: number[]
+
+    constructor(firstName: string, lastName: string, grades?: number[]) {
+        this.firstName = firstName,
+        this.lastName = lastName
+        this.grades = grades
+    }
+    // methods
+    average(): string {
+        let avg: number = 0
+        if(this.grades){
+            for (let i = 0; i < this.grades.length; i++){
+                avg += this.grades[i]
+            }
+            return `The grades average for ${this.firstName} is: ${avg / this.grades.length}`
+        } else {
+            return `${this.firstName} has no grades record yet.`
+        }
+    }
+}
+
+const dan = new Student('Dan', 'Almenar')
+console.log('Dan object from class Student:', dan)
+dan.grades = [78, 83, 100, 90, 77]
+console.log('updated dan with grades:', dan)
+console.log(dan.average())
+
+const johnDoe = new Student('John', 'Doe')
+console.log(johnDoe.average())
+
+// classes implementing interfaces
+interface StudentInterface {
+    firstName: string
+    lastName: string
+    grades?: number[]
+    average(): string
+}
+
+class StudentWithInterface implements StudentInterface {
+    firstName: string
+    lastName: string
+    grades?: number[]
+
+    constructor(firstName: string, lastName: string, grades?: number[]){
+        this.firstName = firstName,
+        this.lastName = lastName,
+        this.grades = grades ? grades : []
+    }
+
+    average(): string {
+        return `This is just an example of ${this.firstName}'s average.\nYou may implement a more elaborated logic to this.`
+    }
+}
+
+const janeDoe = new StudentWithInterface('Jane', 'Doe', [66, 73, 88, 92, 80])
+console.log(janeDoe.average())
+
+// extended classes
+class ForeignStudent extends Student {
+    countryOfOrigin: string
+
+    constructor(firstName: string, lastName: string, countryOfOrigin: string, grades?: number[]){ //optional parameters must be declared after the required ones
+        super(firstName, lastName, grades ? grades : []) // ternary operators for optional parameters
+        this.countryOfOrigin = countryOfOrigin
+    }
+}
+
+const nayamoto = new ForeignStudent('Nadira', 'Nayamoto', 'Japan', [90, 100, 100, 100, 100])
+console.log(nayamoto.average())
+

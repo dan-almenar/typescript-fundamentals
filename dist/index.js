@@ -88,3 +88,49 @@ newUser.lastName = 'Developer';
 newUser.hobbies = ['programming', 'playing with his kids'];
 const add = (num1, num2) => num1 + num2;
 const substract = (num1, num2) => num1 - num2;
+class Student {
+    constructor(firstName, lastName, grades) {
+        this.firstName = firstName,
+            this.lastName = lastName;
+        this.grades = grades;
+    }
+    average() {
+        let avg = 0;
+        if (this.grades) {
+            for (let i = 0; i < this.grades.length; i++) {
+                avg += this.grades[i];
+            }
+            return `The grades average for ${this.firstName} is: ${avg / this.grades.length}`;
+        }
+        else {
+            return `${this.firstName} has no grades record yet.`;
+        }
+    }
+}
+const dan = new Student('Dan', 'Almenar');
+console.log('Dan object from class Student:', dan);
+dan.grades = [78, 83, 100, 90, 77];
+console.log('updated dan with grades:', dan);
+console.log(dan.average());
+const johnDoe = new Student('John', 'Doe');
+console.log(johnDoe.average());
+class StudentWithInterface {
+    constructor(firstName, lastName, grades) {
+        this.firstName = firstName,
+            this.lastName = lastName,
+            this.grades = grades ? grades : [];
+    }
+    average() {
+        return `This is just an example of ${this.firstName}'s average.\nYou may implement a more elaborated logic to this.`;
+    }
+}
+const janeDoe = new StudentWithInterface('Jane', 'Doe', [66, 73, 88, 92, 80]);
+console.log(janeDoe.average());
+class ForeignStudent extends Student {
+    constructor(firstName, lastName, countryOfOrigin, grades) {
+        super(firstName, lastName, grades ? grades : []);
+        this.countryOfOrigin = countryOfOrigin;
+    }
+}
+const nayamoto = new ForeignStudent('Nadira', 'Nayamoto', 'Japan', [90, 100, 100, 100, 100]);
+console.log(nayamoto.average());
