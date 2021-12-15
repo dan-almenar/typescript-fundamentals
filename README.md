@@ -10,7 +10,7 @@ The starting tree has been set as follows:
 - - index.js: compiled javascript file from index.ts
 
 ### Instructions:
-Clone this repo, open the index.ts with Live Server or any other local server, then jump into developer tools.
+Clone this repo, open the index.html with Live Server or any other local server, then jump into developer tools.
 
 ### TUTORIAL:
 The index.ts file contains multiple comments that serve as a tutorial-like walkthrough.
