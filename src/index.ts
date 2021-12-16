@@ -275,7 +275,7 @@ class StudentWithInterface implements StudentInterface {
 const janeDoe = new StudentWithInterface('Jane', 'Doe', [66, 73, 88, 92, 80])
 console.log(janeDoe.average())
 
-// extended classes
+// EXTENDED CLASSES (SUBCLASSES)
 class ForeignStudent extends Student {
     countryOfOrigin: string
 
@@ -288,3 +288,17 @@ class ForeignStudent extends Student {
 const nayamoto = new ForeignStudent('Nadira', 'Nayamoto', 'Japan', [90, 100, 100, 100, 100])
 console.log(nayamoto.average())
 
+// GENERICS
+/*
+Generics allows us to define markups for functions.
+It's usefull to create components that can be used with different
+types of data.
+*/
+function getArray<T>(items: T[]): T[] {
+    return new Array().concat(items)
+}
+
+let numsArray = getArray([1, 2, 3, 4])
+let stringsArray = getArray(['Dan', 'Almenar'])
+
+console.log(`Generics:\n${numsArray}\n${stringsArray}`)

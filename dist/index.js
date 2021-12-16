@@ -134,3 +134,9 @@ class ForeignStudent extends Student {
 }
 const nayamoto = new ForeignStudent('Nadira', 'Nayamoto', 'Japan', [90, 100, 100, 100, 100]);
 console.log(nayamoto.average());
+function getArray(items) {
+    return new Array().concat(items);
+}
+let numsArray = getArray([1, 2, 3, 4]);
+let stringsArray = getArray(['Dan', 'Almenar']);
+console.log(`Generics:\n${numsArray}\n${stringsArray}`);
